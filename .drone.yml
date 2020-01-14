@@ -67,15 +67,18 @@ pipeline:
      # - kubectl set image deployment/dronekubernetes dronekubernetes=eu.gcr.io/${PROJECT_ID}/app:commit_${DRONE_COMMIT}
      
       - kubectl delete deployment drone-java-spring-pipeline 
-        when:
-          deployment: exists
+      #  when:
+          
           
       - kubectl delete service drone-java-spring-pipeline-service
-        when:
-          service: exists
+      #  when:
+          
       
       - kubectl run drone-java-spring-pipeline --image=eu.gcr.io/dronekubernetes/drone-java-spring:commit_${DRONE_COMMIT}
       - kubectl expose deployment drone-java-spring-pipeline --type=NodePort --port=80 --target-port=8080 --name=drone-java-spring-pipeline-service
       
     when:
-      branch: master		
+      branch: master	
+      deployment: exists
+      service: exists
+      
