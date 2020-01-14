@@ -17,10 +17,16 @@ pipeline:
         - target/*.war
     
     
-  static_scan:
-    image: registry/sonar-scanner
+  #static_scan:
+  #  image: registry/sonar-scanner
+  #  quality: OK
+  #  secrets: [ sonar_host, sonar_token ] 
+    
+  
+  code-coverage:
+    image: aosapps/drone-sonar-plugin
     quality: OK
-    secrets: [ sonar_host, sonar_token ]  
+    secrets: [ sonar_host, sonar_token ] 
   
   #code-coverage:
   #  image: aosapps/drone-sonar-plugin
