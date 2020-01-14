@@ -23,7 +23,7 @@ pipeline:
   #  secrets: [ sonar_host, sonar_token ] 
     
   
-  code-coverage:
+  code-coverage-sonarQube:
     image: aosapps/drone-sonar-plugin:0.8
     quality: OK
     secrets: [ sonar_host, sonar_token ] 
