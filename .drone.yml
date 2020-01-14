@@ -15,6 +15,16 @@ pipeline:
     artifacts:
       paths:
         - target/*.war
+        
+  steps:
+- name: code-analysis
+  image: aosapps/drone-sonar-plugin
+  settings:
+    sonar_host:
+      from_secret: http://35.224.23.88:9000/
+    sonar_token:
+      from_secret: 3136946383e28e125ad47e614a2340ae77d15b63
+  
   gcr:
     image: plugins/gcr
     registry: eu.gcr.io
