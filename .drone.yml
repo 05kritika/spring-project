@@ -66,13 +66,13 @@ pipeline:
       - gcloud container clusters get-credentials $CLUSTER_NAME
      # - kubectl set image deployment/dronekubernetes dronekubernetes=eu.gcr.io/${PROJECT_ID}/app:commit_${DRONE_COMMIT}
      
+      - kubectl rollout history deployment/drone-java-spring-pipeline 
+     
       - kubectl delete deployment drone-java-spring-pipeline    
       - kubectl delete service drone-java-spring-pipeline-service
           
       - kubectl run drone-java-spring-pipeline --image=eu.gcr.io/dronekubernetes/drone-java-spring:commit_${DRONE_COMMIT}
       - kubectl expose deployment drone-java-spring-pipeline --type=NodePort --port=80 --target-port=8080 --name=drone-java-spring-pipeline-service
-      
-      - kubectl rollout history deployment/drone-java-spring-pipeline 
       
     when:
       branch: master	
