@@ -66,11 +66,11 @@ pipeline:
       - gcloud container clusters get-credentials $CLUSTER_NAME
      # - kubectl set image deployment/dronekubernetes dronekubernetes=eu.gcr.io/${PROJECT_ID}/app:commit_${DRONE_COMMIT}
      
-      - kubectl delete deployment drone-java-spring-pipeline 
+     # - kubectl delete deployment drone-java-spring-pipeline 
       #  when:
           
           
-      - kubectl delete service drone-java-spring-pipeline-service
+      #- kubectl delete service drone-java-spring-pipeline-service
       #  when:
           
       
@@ -79,6 +79,6 @@ pipeline:
       
     when:
       branch: master	
-      deployment: exists
-      service: exists
+     # deployment: exists
+      #service: exists
       
