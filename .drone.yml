@@ -15,4 +15,4 @@ pipeline:
     environment:
       CODECOV_TOKEN: 918e08be-96db-436f-8cb8-758a9865c462
     commands:
-      - "curl -s https://codecov.io/bash -f ."
+      - "curl -s https://codecov.io/bash -v"
