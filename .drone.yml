@@ -1,0 +1,18 @@
+pipeline:
+  build:	  
+    image: maven:3-jdk-8
+    commands: 
+      - "mvn package -B"
+      - "mvn cobertura:cobertura"
+      - "curl -s https://codecov.io/bash"
+   
+      
+  codeCoverage-sonarQube:
+    image: aosapps/drone-sonar-plugin:0.8
+    quality: OK
+    secrets: [ sonar_host, sonar_token ] 
+    
+  coverage-report:
+    image: plugins/codecov
+    environment:
+      CODECOV_TOKEN: 31a62b0e-1838-407c-8d27-5bcf065685ff
