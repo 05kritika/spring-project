@@ -4,8 +4,6 @@ pipeline:
     commands: 
       - "mvn package -B"
       - "mvn cobertura:cobertura"
-      - "curl -s https://codecov.io/bash -f ."
-   
       
   codeCoverage-sonarQube:
     image: aosapps/drone-sonar-plugin:0.8
@@ -16,3 +14,5 @@ pipeline:
     image: plugins/codecov
     environment:
       CODECOV_TOKEN: 918e08be-96db-436f-8cb8-758a9865c462
+    commands:
+      - "curl -s https://codecov.io/bash -f ."
