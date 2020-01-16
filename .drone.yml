@@ -15,4 +15,4 @@ pipeline:
   coverage-report:
     image: plugins/codecov
     environment:
-      CODECOV_TOKEN: 31a62b0e-1838-407c-8d27-5bcf065685ff
+      CODECOV_TOKEN: 918e08be-96db-436f-8cb8-758a9865c462
