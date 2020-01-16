@@ -4,7 +4,7 @@ pipeline:
     commands: 
       - "mvn package -B"
       - "mvn cobertura:cobertura"
-      - "curl -s https://codecov.io/bash" -f .
+      - "curl -s https://codecov.io/bash -f ."
    
       
   codeCoverage-sonarQube:
